@@ -17,13 +17,6 @@ import MailIcon from '@mui/icons-material/Mail';
 
 export default function App() {
 
-  const theme = useTheme()
-
-  const isMediumScreen = theme.breakpoints.up('md');
-
-  // console.log({ isMediumScreen })
-
-
   const [quizs, setQuizs] = useState([]);
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
 
