@@ -9,15 +9,24 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import SendIcon from '@mui/icons-material/Send';
 import './App.css';
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography, useTheme } from '@mui/material';
 import HelpIcon from '@mui/icons-material/Help';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
 
 export default function App() {
+
+  const theme = useTheme()
+
+  const isMediumScreen = theme.breakpoints.up('md');
+
+  // console.log({ isMediumScreen })
+
+
   const [quizs, setQuizs] = useState([]);
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
+
 
   useEffect(() => {
     fetch('quiz.json')
@@ -40,84 +49,96 @@ export default function App() {
     <div className='main'>
       <section id='top-area'>
         <header>
-          <div className='container'>
-            <Typography className='top-title' sx={{ fontSize: 22 }}>
-              <span><Link href="#" underline="none" color='#fff'>
+          <Container>
+            <Typography sx={{ fontSize: 22 }}>
+              <Link href="#" underline="none" color='#fff'>
                 {'ecryptoG'}
-              </Link></span>
+              </Link>
             </Typography>
-          </div>
+          </Container>
         </header>
-        <div className='container main-title'>
-          <div className='row'>
-            <h1>EARN REWORDS WITH ECRYPTOG ROUNDTABLE!</h1>
-            <p>Receive Rewards, Giftcards and support charities!</p>
-          </div>
-        </div>
+        <Container>
+          <Typography variant='h3' textAlign={'center'} color={"white"} fontWeight={"bold"} my={4} sx={{ fontSize: 44 }}>
+            EARN REWORDS WITH ECRYPTOG ROUNDTABLE!
+          </Typography>
+          <Typography variant='h5' textAlign={'center'} color={"white"} my={4}>
+            Receive Rewards, Giftcards and support charities!
+          </Typography>
+        </Container>
       </section>
-      <div className='quizbox'>
+      <Container>
+        <Box className='quizbox' py={4}>
+          {quizs.length > 0 && currentQuizIndex <= quizs.length && (
+            <div className='quiz'>
+              <Typography variant='h4' my={3}>
+                Select your favourite
+              </Typography>
+              <Typography variant='h6'>
+                PROGRESS ({currentQuizIndex}/{quizs.length})
+              </Typography>
+              <ProgressBar currentQuizIndex={currentQuizIndex} totalQuizzes={quizs.length} />
+              <div className='shadow'></div>
+              {currentQuizIndex !== 3 ? (
+                <div>
+                  <Typography variant='h5' mb={2}>{quizs[currentQuizIndex].question}</Typography>
+                  <RadioButtonsGroup options={quizs[currentQuizIndex].options} />
+                  <Box sx={{ display: 'flex', justifyContent: 'space-around' }} mt={4}>
+                    <Button onClick={handleBackButtonClick} variant='contained' className='back-button'>
+                      Back
+                    </Button>
+                    <Button onClick={handleNextButtonClick} variant='contained' className='next-button'>
+                      Next
+                    </Button>
+                  </Box>
+                </div>
+              ) : (
+                <div className='user-info'>
+                  <Typography variant='h5'>Congratulations!</Typography>
+                  <Typography variant='h6'>Please enter your information</Typography>
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    id="name"
+                    label="Email Address"
+                    type="email"
+                    style={{ width: '60%' }}
+                    variant="standard"
+                  />
+                  <Stack mt={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Button variant="contained" endIcon={<SendIcon />} sx={{ width: '60%' }} >
+                      Send
+                    </Button>
+                  </Stack>
+                </div>
+              )}
 
-        {quizs.length > 0 && currentQuizIndex <= quizs.length && (
-          <div className='quiz'>
-            <h1 className='sub-title'>Select your favourite</h1>
-            <h4>PROGRESS ({currentQuizIndex}/{quizs.length})</h4>
-            <ProgressBar currentQuizIndex={currentQuizIndex} totalQuizzes={quizs.length} />
-            <div className='shadow'></div>
-            {currentQuizIndex !== 3 ? (
-              <div>
-                <h2>{quizs[currentQuizIndex].question}</h2>
-                <RadioButtonsGroup options={quizs[currentQuizIndex].options} />
-
-                <Stack direction="row" justifyContent="center" alignItems="center" spacing={30} useFlexGap flexWrap="wrap" mt={5}>
-                  <Button onClick={handleBackButtonClick} variant='contained' className='back-button'>
-                    Back
-                  </Button>
-                  <Button onClick={handleNextButtonClick} variant='contained' className='next-button'>
-                    Next
-                  </Button>
-                </Stack>
-              </div>
-            ) : (
-              <div className='user-info'>
-                <h2>Congratulations!</h2>
-                <h3>Please enter your information</h3>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  label="Email Address"
-                  type="email"
-                  style={{ width: '60%' }}
-                  variant="standard"
-                />
-                <Stack mt={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <Button variant="contained" endIcon={<SendIcon />} sx={{ width: '60%' }} >
-                    Send
-                  </Button>
-                </Stack>
-
-
-              </div>
-
-            )}
-
-          </div>
-        )}
-      </div>
+            </div>
+          )}
+        </Box>
+      </Container>
       <div className='divider'></div>
-      <div className='container' style={{ textAlign: 'center' }}>
-        <h2 style={{ fontSize: '32px' }}>What does ecryptoG do?</h2>
-        <span style={{ fontSize: '24px' }}>
+      <Container>
+        <Typography style={{ fontSize: '32px' }} fontWeight={'bold'} textAlign={'center'}>
+          What does ecryptoG do?
+        </Typography>
+        <Typography style={{ fontSize: '24px' }} textAlign={'center'}>
           We are an independent comparison community of research companies. We select and promote the best research companies that are looking for new respondents for their research studies. The tasks of the panelists vary from completing (media) surveys, research studies and scanning your groceries!
           <br /><br />
           Please note that we only promote external research companies and do not send any research studies ourselves.
-        </span>
-      </div>
+        </Typography>
+      </Container>
+
       <div className='divider'></div>
-      <div className='container' style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <h3 style={{ fontSize: '32px' }}>Questions & Answers</h3>
-        <span style={{ fontSize: '21px' }}>This is where you can find the questions we see the most!</span>
-      </div>
+
+      <Container>
+        <Typography style={{ fontSize: '32px' }} fontWeight={'bold'} textAlign={'center'}>
+          Questions & Answers
+        </Typography>
+        <Typography style={{ fontSize: '21px' }} textAlign={'center'} my={3}>
+          This is where you can find the questions we see the most!
+        </Typography>
+      </Container>
+
       <Container>
         <Box mb={10}>
           <Grid container spacing={2}>

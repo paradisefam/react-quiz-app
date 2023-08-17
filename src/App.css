@@ -82,18 +82,16 @@ header {
 .quizbox {
   background-color: #fff;
   box-shadow: 0 0 5px #777;
-  width: 60%;
+  /* width: 60%; */
   z-index: 9;
-  height: 500px;
   text-align: center;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   margin-left: auto;
   margin-right: auto;
   margin-top: -300px;
   position: relative;
-
 }
 
 .progress-bar {
@@ -108,12 +106,6 @@ header {
   height: 100%;
   background-color: orange;
   border-radius: 10px;
-}
-
-.subtitle {
-  padding: 0 50px;
-  letter-spacing: 0.2em;
-  font-size: 40px;
 }
 
 .divider {
@@ -136,7 +128,7 @@ header {
 
 footer {
   width: 100%;
-  background: #1ab9a7;
+  background: #03bafc;
   padding: 30px 0 0 0;
   color: white;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
