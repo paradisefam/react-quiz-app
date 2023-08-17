@@ -1,0 +1,29 @@
+[
+    {
+        "id": "01",
+        "question": "Coffee or tea?",
+        "options": [
+            "Coffee",
+            "Tea",
+            "Neither"
+        ]
+    },
+    {
+        "id": "02",
+        "question": "McDonalds or Burger King?",
+        "options": [
+            "McDonalds",
+            "Burger King",
+            "Neither"
+        ]
+    },
+    {
+        "id": "03",
+        "question": "Carbonated or flat water?",
+        "options": [
+            "Carbonated",
+            "Flat",
+            "Neither"
+        ]
+    }
+]
