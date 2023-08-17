@@ -14,11 +14,9 @@ import HelpIcon from '@mui/icons-material/Help';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
-// import { useTheme } from '@material-ui/core/styles';
 
 export default function App() {
 
-  // const theme = useTheme();
   const [quizs, setQuizs] = useState([]);
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
 
@@ -53,10 +51,12 @@ export default function App() {
           </Container>
         </header>
         <Container>
-          <Typography variant='h3' textAlign={'center'} color={"white"} fontWeight={"bold"} my={4} sx={{ fontSize: 44 }}>
+          <Typography variant='h3' textAlign={'center'} color={"white"} fontWeight={"bold"} my={4}
+            sx={{ fontSize: { xs: 30, sm: 34, md: 38 } }}>
             EARN REWORDS WITH ECRYPTOG ROUNDTABLE!
           </Typography>
-          <Typography variant='h5' textAlign={'center'} color={"white"} my={4}>
+          <Typography variant='h5' textAlign={'center'} color={"white"} my={4}
+            sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>
             Receive Rewards, Giftcards and support charities!
           </Typography>
         </Container>
@@ -65,17 +65,22 @@ export default function App() {
         <Box className='quizbox' py={4}>
           {quizs.length > 0 && currentQuizIndex <= quizs.length && (
             <div className='quiz'>
-              <Typography variant='h4' my={3}>
+              <Typography variant='h4' my={3}
+                sx={{ fontSize: { xs: 24, sm: 28, md: 32 } }}>
                 Select your favourite
               </Typography>
-              <Typography variant='h6'>
+              <Typography variant='h6'
+                sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>
                 PROGRESS ({currentQuizIndex}/{quizs.length})
               </Typography>
               <ProgressBar currentQuizIndex={currentQuizIndex} totalQuizzes={quizs.length} />
               <div className='shadow'></div>
               {currentQuizIndex !== 3 ? (
                 <div>
-                  <Typography variant='h5' mb={2}>{quizs[currentQuizIndex].question}</Typography>
+                  <Typography variant='h5' mb={2}
+                    sx={{ fontSize: { xs: 20, sm: 24, md: 28 } }}>
+                    {quizs[currentQuizIndex].question}
+                  </Typography>
                   <RadioButtonsGroup options={quizs[currentQuizIndex].options} />
                   <Box sx={{ display: 'flex', justifyContent: 'space-around' }} mt={4}>
                     <Button onClick={handleBackButtonClick} variant='contained' className='back-button'>
@@ -88,8 +93,8 @@ export default function App() {
                 </div>
               ) : (
                 <div className='user-info'>
-                  <Typography variant='h5'>Congratulations!</Typography>
-                  <Typography variant='h6'>Please enter your information</Typography>
+                  <Typography variant='h5' sx={{ fontSize: { xs: 20, sm: 24, md: 28 } }}>Congratulations!</Typography>
+                  <Typography variant='h6' sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }}>Please enter your information</Typography>
                   <TextField
                     autoFocus
                     margin="dense"
@@ -113,10 +118,10 @@ export default function App() {
       </Container>
       <div className='divider'></div>
       <Container>
-        <Typography style={{ fontSize: '32px' }} fontWeight={'bold'} textAlign={'center'}>
+        <Typography sx={{ fontSize: { xs: 22, sm: 26, md: 30 } }} fontWeight={'bold'} textAlign={'center'}>
           What does ecryptoG do?
         </Typography>
-        <Typography style={{ fontSize: '24px' }} textAlign={'center'}>
+        <Typography sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} textAlign={'center'}>
           We are an independent comparison community of research companies. We select and promote the best research companies that are looking for new respondents for their research studies. The tasks of the panelists vary from completing (media) surveys, research studies and scanning your groceries!
           <br /><br />
           Please note that we only promote external research companies and do not send any research studies ourselves.
@@ -126,10 +131,10 @@ export default function App() {
       <div className='divider'></div>
 
       <Container>
-        <Typography style={{ fontSize: '32px' }} fontWeight={'bold'} textAlign={'center'}>
+        <Typography sx={{ fontSize: { xs: 22, sm: 26, md: 30 } }} fontWeight={'bold'} textAlign={'center'}>
           Questions & Answers
         </Typography>
-        <Typography style={{ fontSize: '21px' }} textAlign={'center'} my={3}>
+        <Typography sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} textAlign={'center'} my={3}>
           This is where you can find the questions we see the most!
         </Typography>
       </Container>
@@ -140,13 +145,13 @@ export default function App() {
             <Grid item xs={12} md={4}>
               <Box sx={{ display: 'flex' }}>
                 <Box mr={2}>
-                  <HelpIcon sx={{ fontSize: 40 }} />
+                  <HelpIcon sx={{ fontSize: { xs: 32, sm: 36, md: 40 } }} />
                 </Box>
                 <Box>
-                  <Typography variant='h6' sx={{ marginBottom: 1 }}>
+                  <Typography variant='h6' sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>
                     I'm having trouble signing up?
                   </Typography>
-                  <Typography>
+                  <Typography sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>
                     Please contact us through Facebook private message along with the name of the research company. We will try our best to guide you through the signup process.
                   </Typography>
                 </Box>
@@ -155,13 +160,13 @@ export default function App() {
             <Grid item xs={12} md={4}>
               <Box sx={{ display: 'flex' }}>
                 <Box mr={2}>
-                  <HelpIcon sx={{ fontSize: 40 }} />
+                  <HelpIcon sx={{ fontSize: { xs: 32, sm: 36, md: 40 } }} />
                 </Box>
                 <Box>
-                  <Typography variant='h6' sx={{ marginBottom: 1 }}>
+                  <Typography variant='h6' sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>
                     There seems to be a problem with my account?
                   </Typography>
-                  <Typography>
+                  <Typography sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>
                     Unfortunately the amount of help we can offer here is limited. Since we're just the comparison website we have no access to your account. We can however guide you to the correct customer service.
                   </Typography>
                 </Box>
@@ -170,13 +175,13 @@ export default function App() {
             <Grid item xs={12} md={4}>
               <Box sx={{ display: 'flex' }}>
                 <Box mr={2}>
-                  <HelpIcon sx={{ fontSize: 40 }} />
+                  <HelpIcon sx={{ fontSize: { xs: 32, sm: 36, md: 40 } }} />
                 </Box>
                 <Box>
-                  <Typography variant='h6' sx={{ marginBottom: 1 }}>
+                  <Typography variant='h6' sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>
                     I received an error with no more available spots.
                   </Typography>
-                  <Typography>
+                  <Typography sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>
                     New spots fill up really quickly when they open. We don't want you to miss out on joining a research company. Please feel free to send us a message so we can try to find you a good alternative.
                   </Typography>
                 </Box>
@@ -250,7 +255,7 @@ export default function App() {
         <Box style={{ backgroundColor: '#252525', width: '100%', height: '50px', display: 'flex', alignItems: 'center' }}>
           <Container>
             <Typography sx={{ fontSize: 13 }}>
-              Copyright© SurveyWorld
+              Copyright © ecryptoG
               <span style={{ marginLeft: '30px' }}><Link href="#" underline="hover" color='#808080'>
                 {'Privacy Policy'}
               </Link></span>
