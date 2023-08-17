@@ -134,7 +134,7 @@ export default function App() {
         <Typography sx={{ fontSize: { xs: 22, sm: 26, md: 30 } }} fontWeight={'bold'} textAlign={'center'}>
           Questions & Answers
         </Typography>
-        <Typography sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} textAlign={'center'} my={3}>
+        <Typography sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} textAlign={'center'} mb={5}>
           This is where you can find the questions we see the most!
         </Typography>
       </Container>
