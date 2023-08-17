@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import SendIcon from '@mui/icons-material/Send';
 import './App.css';
-import { Box, Container, Grid, Typography, useTheme } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import HelpIcon from '@mui/icons-material/Help';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import HomeIcon from '@mui/icons-material/Home';
