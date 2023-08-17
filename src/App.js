@@ -43,7 +43,7 @@ export default function App() {
       <section id='top-area'>
         <header>
           <Container>
-            <Typography sx={{ fontSize: 22 }}>
+            <Typography sx={{ fontSize: { xs: 18, sm: 20, md: 22 } }}>
               <Link href="#" underline="none" color='#fff'>
                 {'ecryptoG'}
               </Link>
@@ -70,7 +70,7 @@ export default function App() {
                 Select your favourite
               </Typography>
               <Typography variant='h6'
-                sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>
+                sx={{ fontSize: { xs: 12, sm: 16, md: 18 } }}>
                 PROGRESS ({currentQuizIndex}/{quizs.length})
               </Typography>
               <ProgressBar currentQuizIndex={currentQuizIndex} totalQuizzes={quizs.length} />
@@ -93,8 +93,8 @@ export default function App() {
                 </div>
               ) : (
                 <div className='user-info'>
-                  <Typography variant='h5' sx={{ fontSize: { xs: 20, sm: 24, md: 28 } }}>Congratulations!</Typography>
-                  <Typography variant='h6' sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }}>Please enter your information</Typography>
+                  <Typography variant='h5' sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>Congratulations!</Typography>
+                  <Typography variant='h6' sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>Please enter your information</Typography>
                   <TextField
                     autoFocus
                     margin="dense"
@@ -118,7 +118,7 @@ export default function App() {
       </Container>
       <div className='divider'></div>
       <Container>
-        <Typography sx={{ fontSize: { xs: 22, sm: 26, md: 30 } }} fontWeight={'bold'} textAlign={'center'}>
+        <Typography sx={{ fontSize: { xs: 22, sm: 26, md: 30 } }} fontWeight={'bold'} textAlign={'center'} my={4}>
           What does ecryptoG do?
         </Typography>
         <Typography sx={{ fontSize: { xs: 16, sm: 20, md: 24 } }} textAlign={'center'}>
@@ -148,10 +148,10 @@ export default function App() {
                   <HelpIcon sx={{ fontSize: { xs: 32, sm: 36, md: 40 } }} />
                 </Box>
                 <Box>
-                  <Typography variant='h6' sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>
+                  <Typography variant='h6' sx={{ fontSize: { xs: 16, sm: 18, md: 20 } }} mb={2} fontWeight={'bold'}>
                     I'm having trouble signing up?
                   </Typography>
-                  <Typography sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>
+                  <Typography sx={{ fontSize: { xs: 12, sm: 14, md: 16 } }}>
                     Please contact us through Facebook private message along with the name of the research company. We will try our best to guide you through the signup process.
                   </Typography>
                 </Box>
@@ -163,10 +163,10 @@ export default function App() {
                   <HelpIcon sx={{ fontSize: { xs: 32, sm: 36, md: 40 } }} />
                 </Box>
                 <Box>
-                  <Typography variant='h6' sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>
+                  <Typography variant='h6' sx={{ fontSize: { xs: 16, sm: 18, md: 20 } }} mb={2} fontWeight={'bold'}>
                     There seems to be a problem with my account?
                   </Typography>
-                  <Typography sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>
+                  <Typography sx={{ fontSize: { xs: 12, sm: 14, md: 16 } }}>
                     Unfortunately the amount of help we can offer here is limited. Since we're just the comparison website we have no access to your account. We can however guide you to the correct customer service.
                   </Typography>
                 </Box>
@@ -178,10 +178,10 @@ export default function App() {
                   <HelpIcon sx={{ fontSize: { xs: 32, sm: 36, md: 40 } }} />
                 </Box>
                 <Box>
-                  <Typography variant='h6' sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>
+                  <Typography variant='h6' sx={{ fontSize: { xs: 16, sm: 18, md: 20 } }} mb={2} fontWeight={'bold'}>
                     I received an error with no more available spots.
                   </Typography>
-                  <Typography sx={{ fontSize: { xs: 14, sm: 18, md: 22 } }}>
+                  <Typography sx={{ fontSize: { xs: 12, sm: 14, md: 16 } }}>
                     New spots fill up really quickly when they open. We don't want you to miss out on joining a research company. Please feel free to send us a message so we can try to find you a good alternative.
                   </Typography>
                 </Box>
