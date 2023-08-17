@@ -43,8 +43,10 @@
 }
 
 #top-area {
-  background-color: #1ab9a7;
+  background-image: url(./assets/images/image.png);
+  background-size: cover;
   padding-bottom: 300px;
+  position: relative;
 }
 
 .top-title {
@@ -91,6 +93,8 @@ header {
   margin-left: auto;
   margin-right: auto;
   margin-top: -300px;
+  position: relative;
+
 }
 
 .progress-bar {
