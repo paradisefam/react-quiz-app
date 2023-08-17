@@ -14,9 +14,11 @@ import HelpIcon from '@mui/icons-material/Help';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
+// import { useTheme } from '@material-ui/core/styles';
 
 export default function App() {
 
+  // const theme = useTheme();
   const [quizs, setQuizs] = useState([]);
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
 
