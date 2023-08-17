@@ -43,8 +43,7 @@
 }
 
 #top-area {
-  background-image: url(./assets/images/image.png);
-  background-size: cover;
+  background-color: #03bafc;
   padding-bottom: 300px;
   position: relative;
 }
