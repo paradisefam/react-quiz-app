@@ -14,11 +14,14 @@ import HelpIcon from '@mui/icons-material/Help';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
+import axios from 'axios';
 
 export default function App() {
 
   const [quizs, setQuizs] = useState([]);
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
+  const [email, setEmail] = useState('');
+  const [isValidEmail, setIsValidEmail] = useState(true);
 
 
   useEffect(() => {
@@ -36,6 +39,50 @@ export default function App() {
     if (currentQuizIndex > 0) {
       setCurrentQuizIndex(currentQuizIndex - 1);
     }
+  };
+
+  const validateEmail = (email) => {
+    // A simple email validation regex pattern
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmail = async () => {
+
+    // const apiKey = '38676c6632efac0519daee4dacb2a6c4-us2';
+    // const listId = '25a87fb40b';
+
+    // const email = 'office.prolifestyle@gmail.com';
+
+    // const data = {
+    //   email_address: email,
+    //   status: 'subscribed',
+    // };
+
+    // await axios.post(`https://us2.api.mailchimp.com/3.0/lists/${listId}/members`, data, {
+    //   headers: {
+    //     Authorization: `Bearer ${apiKey}`,
+    //   },
+    // })
+    //   .then(response => {
+    //     console.log('Subscriber added:', response.data);
+    //   })
+    //   .catch(error => {
+    //     console.error('Error adding subscriber:', error);
+    //   });
+
+    try {
+      if (!validateEmail(email)) {
+        setIsValidEmail(false);
+        // alert('Invalid Email!');
+        return;
+      }
+      console.log({ email });
+    } catch (error) {
+      console.error(error);
+    }
+
+
   };
 
   return (
@@ -103,9 +150,17 @@ export default function App() {
                     type="email"
                     style={{ width: '60%' }}
                     variant="standard"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setIsValidEmail(true);
+                    }}
                   />
+                  {!isValidEmail && (
+                    <Box style={{ color: 'red' }} sx={{ fontSize: { xs: 10, sm: 12, md: 14 } }}>Invalid Email! Please enter the correct Email..</Box>
+                  )}
                   <Stack mt={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Button variant="contained" endIcon={<SendIcon />} sx={{ width: '60%' }} >
+                    <Button variant="contained" endIcon={<SendIcon />} sx={{ width: '60%' }} onClick={handleEmail}>
                       Send
                     </Button>
                   </Stack>
