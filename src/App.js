@@ -14,7 +14,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default function App() {
 
