@@ -149,7 +149,7 @@ export default function App() {
                 <Box className='user-info'>
                   <Box className='donate-box'>
 
-                    <Container><img src={backgroundImage} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}></img></Container>
+                    <Container><img src={backgroundImage} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center' }} alt='background'></img></Container>
                     <Container>
                       <Typography variant='h5' sx={{ fontSize: { xs: 18, sm: 22, md: 26 }, color: '#03bafc' }} mt={3}>Congratulations!</Typography>
                       <Typography variant='h4' my={3} sx={{ fontSize: { xs: 18, sm: 22, md: 26 } }}>
