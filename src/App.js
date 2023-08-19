@@ -16,11 +16,13 @@ import Link from '@mui/material/Link';
 import './App.css';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import backgroundImage from './assets/images/back.jpg';
+import QRImage from './assets/images/QR.png';
 import HelpIcon from '@mui/icons-material/Help';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 // import mailchimp from '@mailchimp/mailchimp_marketing';
 // import mailchimp from 'mailchimp-api-v3';
@@ -193,24 +195,31 @@ export default function App() {
                               <DialogContent>
                                 <DialogContentText sx={{ textAlign: 'center' }}>
                                   <Grid container spacing={4} >
-                                    <Grid item xs={4} md={4}>
-                                      <Link href="#" underline="none">
+                                    <Grid item xs={3} md={3}>
+                                      <Link href="https://www.facebook.com/" underline="none">
                                         <Box>
                                           <FacebookIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#007bff' }} />
                                         </Box>
                                       </Link>
                                     </Grid>
-                                    <Grid item xs={4} md={4}>
-                                      <Link href="#" underline="none">
+                                    <Grid item xs={3} md={3}>
+                                      <Link href="https://www.twitter.com/" underline="none">
                                         <Box>
                                           <TwitterIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#17a2b8' }} />
                                         </Box>
                                       </Link>
                                     </Grid>
-                                    <Grid item xs={4} md={4}>
-                                      <Link href="#" underline="none">
+                                    <Grid item xs={3} md={3}>
+                                      <Link href="https://mail.google.com/" underline="none">
                                         <Box>
                                           <MailIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#1DA4EC' }} />
+                                        </Box>
+                                      </Link>
+                                    </Grid>
+                                    <Grid item xs={3} md={3}>
+                                      <Link href="https://www.whatsapp.com/" underline="none">
+                                        <Box>
+                                          <WhatsAppIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#1DA4EC' }} />
                                         </Box>
                                       </Link>
                                     </Grid>
@@ -229,9 +238,29 @@ export default function App() {
 
                         </Dialog>
 
-                        <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }}>
+                        <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }} onClick={handleClickOpen}>
                           Donate
                         </Button>
+                        <Dialog
+                          open={open}
+                          onClose={handleClose}
+                          aria-labelledby="alert-dialog-title"
+                          aria-describedby="alert-dialog-description"
+                        >
+                          <Container>
+
+                            <Box>
+                              <DialogContent>
+                                <img src={QRImage} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center' }} alt='QRImage'></img>
+                              </DialogContent>
+                            </Box>
+
+                            <DialogActions>
+                              <Button onClick={handleClose}>Close</Button>
+                            </DialogActions>
+                          </Container>
+
+                        </Dialog>
                       </Box>
                     </Container>
 
