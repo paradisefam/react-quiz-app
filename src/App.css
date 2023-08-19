@@ -1,38 +1,3 @@
-/* :root {
-  --white: #ffffff;
-}
-
-.App {
-  min-height: 100vh;
-  position: relative;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.App::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-
-.App::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(./assets/images/background.jpg);
-  background-size: cover;
-  z-index: -2;
-} */
-
 .container {
   width: 1170px;
   margin: auto;
@@ -81,7 +46,7 @@ header {
 
 .quizbox {
   background-color: #fff;
-  box-shadow: 0 0 5px #777;
+  box-shadow: 0 0 10px #777;
   /* width: 60%; */
   z-index: 9;
   text-align: center;
@@ -93,6 +58,10 @@ header {
   margin-top: -300px;
   position: relative;
 }
+
+/* .donate-box {
+  float: left;
+} */
 
 .progress-bar {
   width: 80%;
