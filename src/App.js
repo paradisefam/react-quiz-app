@@ -82,8 +82,6 @@ export default function App() {
     const tweetText = 'Check out this awesome content!';
     const urlToShare = 'https://ecryptog.netlify.app/';
 
-    console.log({ queryParams })
-
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(urlToShare)}`;
 
 
