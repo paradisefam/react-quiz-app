@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import queryString from 'query-string';
+// import queryString from 'query-string';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -82,12 +82,10 @@ export default function App() {
     const tweetText = 'Check out this awesome content!';
     const urlToShare = 'https://ecryptog.netlify.app/';
 
-    const queryParams = queryString.stringify({
-      text: tweetText,
-      url: urlToShare,
-    });
+    console.log({ queryParams })
 
-    const twitterUrl = `https://twitter.com/intent/tweet?${queryParams}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(urlToShare)}`;
+
 
     window.open(twitterUrl, '_blank');
   };
