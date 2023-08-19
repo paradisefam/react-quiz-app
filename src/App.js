@@ -61,14 +61,22 @@ export default function App() {
       setCurrentQuizIndex(currentQuizIndex - 1);
     }
   };
-  const [open, setOpen] = React.useState(false);
+  const [share, setShare] = React.useState(false);
+  const [donate, setDonate] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+
+  const handleClickShare = () => {
+    console.log('share');
+    setShare(true);
+  };
+  const handleClickDonate = () => {
+    console.log('share');
+    setDonate(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setShare(false);
+    setDonate(false);
   };
 
   // const handleSubmit = (event) => {
@@ -177,11 +185,11 @@ export default function App() {
                       </Typography>
                       <div className='shadow'></div>
                       <Box mt={3} sx={{ display: 'flex', justifyContent: 'space-between', height: '50px' }}>
-                        <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }} onClick={handleClickOpen}>
+                        <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }} onClick={handleClickShare}>
                           Share
                         </Button>
                         <Dialog
-                          open={open}
+                          open={share}
                           onClose={handleClose}
                           aria-labelledby="alert-dialog-title"
                           aria-describedby="alert-dialog-description"
@@ -238,11 +246,11 @@ export default function App() {
 
                         </Dialog>
 
-                        <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }} onClick={handleClickOpen}>
+                        <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }} onClick={handleClickDonate}>
                           Donate
                         </Button>
                         <Dialog
-                          open={open}
+                          open={donate}
                           onClose={handleClose}
                           aria-labelledby="alert-dialog-title"
                           aria-describedby="alert-dialog-description"
