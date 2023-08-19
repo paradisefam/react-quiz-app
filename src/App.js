@@ -230,6 +230,7 @@ export default function App() {
                                       </Link>
                                     </Grid>
                                   </Grid>
+                                </DialogContentText>
                               </DialogContent>
                             </Box>
 
