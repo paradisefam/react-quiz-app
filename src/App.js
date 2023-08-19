@@ -6,6 +6,11 @@ import FormControl from '@mui/material/FormControl';
 // import Stack from '@mui/material/Stack';
 // import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import Link from '@mui/material/Link';
 // import SendIcon from '@mui/icons-material/Send';
 import './App.css';
@@ -13,6 +18,7 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import backgroundImage from './assets/images/back.jpg';
 import HelpIcon from '@mui/icons-material/Help';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -52,6 +58,15 @@ export default function App() {
     if (currentQuizIndex > 0) {
       setCurrentQuizIndex(currentQuizIndex - 1);
     }
+  };
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   // const handleSubmit = (event) => {
@@ -159,16 +174,60 @@ export default function App() {
                         Youth Development • Nationwide
                       </Typography>
                       <div className='shadow'></div>
-                      <Box mt={3} sx={{ display: 'flex', justifyContent: 'space-between', height: '50px', position: 'sticky', top: 0 }}>
-                        <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }}>
+                      <Box mt={3} sx={{ display: 'flex', justifyContent: 'space-between', height: '50px' }}>
+                        <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }} onClick={handleClickOpen}>
                           Share
                         </Button>
-                        {/* <Modal
+                        <Dialog
                           open={open}
                           onClose={handleClose}
-                          aria-labelledby="child-modal-title"
-                          aria-describedby="child-modal-description"
-                        ></Modal> */}
+                          aria-labelledby="alert-dialog-title"
+                          aria-describedby="alert-dialog-description"
+                        >
+                          <Container>
+                            <DialogTitle id="alert-dialog-title" sx={{ fontSize: { xs: 16, sm: 18, md: 20 } }}>
+                              {"Share to..."}
+                            </DialogTitle>
+                            <div className='divider' style={{ margin: 0 }}></div>
+                            <Box>
+                              <DialogContent>
+                                <DialogContentText sx={{ textAlign: 'center' }}>
+                                  <Grid container spacing={4} >
+                                    <Grid item xs={4} md={4}>
+                                      <Link href="#" underline="none">
+                                        <Box>
+                                          <FacebookIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#007bff' }} />
+                                        </Box>
+                                      </Link>
+                                    </Grid>
+                                    <Grid item xs={4} md={4}>
+                                      <Link href="#" underline="none">
+                                        <Box>
+                                          <TwitterIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#17a2b8' }} />
+                                        </Box>
+                                      </Link>
+                                    </Grid>
+                                    <Grid item xs={4} md={4}>
+                                      <Link href="#" underline="none">
+                                        <Box>
+                                          <MailIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#1DA4EC' }} />
+                                        </Box>
+                                      </Link>
+                                    </Grid>
+                                  </Grid>
+                                  <Typography mt={2} sx={{ fontSize: { xs: 12, sm: 14, md: 16 } }}>
+                                    * Please Turn Off Pop-Up Blocking for Twitter and Facebook sharing.
+                                  </Typography>
+                                </DialogContentText>
+                              </DialogContent>
+                            </Box>
+
+                            <DialogActions>
+                              <Button onClick={handleClose}>Close</Button>
+                            </DialogActions>
+                          </Container>
+
+                        </Dialog>
 
                         <Button variant="contained" sx={{ width: '49%', backgroundColor: '#03bafc' }}>
                           Donate
