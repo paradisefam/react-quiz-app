@@ -66,11 +66,9 @@ export default function App() {
 
 
   const handleClickShare = () => {
-    console.log('share');
     setShare(true);
   };
   const handleClickDonate = () => {
-    console.log('share');
     setDonate(true);
   };
 
@@ -232,10 +230,6 @@ export default function App() {
                                       </Link>
                                     </Grid>
                                   </Grid>
-                                  <Typography mt={2} sx={{ fontSize: { xs: 12, sm: 14, md: 16 } }}>
-                                    * Please Turn Off Pop-Up Blocking for Twitter and Facebook sharing.
-                                  </Typography>
-                                </DialogContentText>
                               </DialogContent>
                             </Box>
 
