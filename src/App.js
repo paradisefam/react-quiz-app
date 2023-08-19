@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import queryString from 'query-string';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -75,6 +76,20 @@ export default function App() {
   const handleClose = () => {
     setShare(false);
     setDonate(false);
+  };
+
+  const handleTweetClick = () => {
+    const tweetText = 'Check out this awesome content!';
+    const urlToShare = 'https://ecryptog.netlify.app/';
+
+    const queryParams = queryString.stringify({
+      text: tweetText,
+      url: urlToShare,
+    });
+
+    const twitterUrl = `https://twitter.com/intent/tweet?${queryParams}`;
+
+    window.open(twitterUrl, '_blank');
   };
 
   // const handleSubmit = (event) => {
@@ -202,18 +217,18 @@ export default function App() {
                                 <DialogContentText sx={{ textAlign: 'center' }}>
                                   <Grid container spacing={4} >
                                     <Grid item xs={3} md={3}>
-                                      <Link href="https://www.facebook.com/" underline="none">
-                                        <Box>
-                                          <FacebookIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#007bff' }} />
-                                        </Box>
-                                      </Link>
+                                      {/* <Link href="" underline="none"> */}
+                                      <Box>
+                                        <FacebookIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#007bff' }} />
+                                      </Box>
+                                      {/* </Link> */}
                                     </Grid>
                                     <Grid item xs={3} md={3}>
-                                      <Link href="https://www.twitter.com/" underline="none">
-                                        <Box>
-                                          <TwitterIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#17a2b8' }} />
-                                        </Box>
-                                      </Link>
+                                      {/* <Link href="https://www.twitter.com/" underline="none"> */}
+                                      <Box onClick={handleTweetClick}>
+                                        <TwitterIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#17a2b8' }} />
+                                      </Box>
+                                      {/* </Link> */}
                                     </Grid>
                                     <Grid item xs={3} md={3}>
                                       <Link href="https://mail.google.com/" underline="none">
