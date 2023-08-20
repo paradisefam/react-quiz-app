@@ -217,7 +217,7 @@ export default function App() {
                                           hashtag={"#example"}
                                           className="Demo__some-network__share-button"
                                         >
-                                          <FacebookIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#007bff' }} />
+                                          <FacebookIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#3b5998' }} />
                                         </FacebookShareButton>
                                       </Box>
                                       {/* </Link> */}
@@ -230,7 +230,7 @@ export default function App() {
                                           url={"https://ecryptog.netlify.app/"}
                                           hashtags={["example", "website"]}
                                         >
-                                          <TwitterIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#17a2b8' }} />
+                                          <TwitterIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#00ACED ' }} />
                                         </TwitterShareButton>
                                       </Box>
                                       {/* </Link> */}
@@ -239,7 +239,7 @@ export default function App() {
                                       {/* <Link href="https://mail.google.com/" underline="none"> */}
                                       <Box>
                                         <EmailShareButton url={"https://ecryptog.netlify.app/"} subject={"Check out this website!"} body={"I thought you might be interested in this website: https://ecryptog.netlify.app/"}>
-                                          <MailIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#1DA4EC' }} />
+                                          <MailIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#E84C3D' }} />
                                         </EmailShareButton>
                                       </Box>
                                       {/* </Link> */}
