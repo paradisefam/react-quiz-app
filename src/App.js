@@ -74,6 +74,10 @@ export default function App() {
     setDonate(true);
   };
 
+  const handleBinanceClick = () => {
+    window.open("https://www.binance.com/", '_blank');
+  }
+
   const handleClose = () => {
     setShare(false);
     setDonate(false);
@@ -280,6 +284,7 @@ export default function App() {
                             </Box>
 
                             <DialogActions>
+                              <Button onClick={handleBinanceClick}>Go to Binance</Button>
                               <Button onClick={handleClose}>Close</Button>
                             </DialogActions>
                           </Container>
