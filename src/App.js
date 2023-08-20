@@ -25,6 +25,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton } from "react-share";
 // import mailchimp from '@mailchimp/mailchimp_marketing';
 // import mailchimp from 'mailchimp-api-v3';
 // import axios from 'axios';
@@ -78,15 +79,6 @@ export default function App() {
     setDonate(false);
   };
 
-  const handleTweetClick = () => {
-    const tweetText = 'Check out this awesome content!';
-    const urlToShare = 'https://ecryptog.netlify.app/';
-
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(urlToShare)}`;
-
-
-    window.open(twitterUrl, '_blank');
-  };
 
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -213,37 +205,55 @@ export default function App() {
                                 <DialogContentText sx={{ textAlign: 'center' }}>
                                   <Grid container spacing={4} >
                                     <Grid item xs={3} md={3}>
-                                      {/* <Link href="" underline="none"> */}
+                                      {/* <Link href="https://www.facebook.com/" underline="none"> */}
                                       <Box>
-                                        <FacebookIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#007bff' }} />
+                                        <FacebookShareButton
+                                          url={"https://ecryptog.netlify.app/"}
+                                          quote={"Check out this website!"}
+                                          hashtag={"#example"}
+                                          className="Demo__some-network__share-button"
+                                        >
+                                          <FacebookIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#007bff' }} />
+                                        </FacebookShareButton>
                                       </Box>
                                       {/* </Link> */}
                                     </Grid>
                                     <Grid item xs={3} md={3}>
                                       {/* <Link href="https://www.twitter.com/" underline="none"> */}
-                                      <Box onClick={handleTweetClick}>
-                                        <TwitterIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#17a2b8' }} />
+                                      <Box>
+                                        <TwitterShareButton
+                                          title={"Check out this website!"}
+                                          url={"https://ecryptog.netlify.app/"}
+                                          hashtags={["example", "website"]}
+                                        >
+                                          <TwitterIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#17a2b8' }} />
+                                        </TwitterShareButton>
                                       </Box>
                                       {/* </Link> */}
                                     </Grid>
                                     <Grid item xs={3} md={3}>
-                                      <Link href="https://mail.google.com/" underline="none">
-                                        <Box>
+                                      {/* <Link href="https://mail.google.com/" underline="none"> */}
+                                      <Box>
+                                        <EmailShareButton url={"https://ecryptog.netlify.app/"} subject={"Check out this website!"} body={"I thought you might be interested in this website: https://ecryptog.netlify.app/"}>
                                           <MailIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#1DA4EC' }} />
-                                        </Box>
-                                      </Link>
+                                        </EmailShareButton>
+                                      </Box>
+                                      {/* </Link> */}
                                     </Grid>
                                     <Grid item xs={3} md={3}>
-                                      <Link href="https://www.whatsapp.com/" underline="none">
-                                        <Box>
-                                          <WhatsAppIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#1DA4EC' }} />
-                                        </Box>
-                                      </Link>
+                                      {/* <Link href="https://www.whatsapp.com/" underline="none"> */}
+                                      <Box>
+                                        <WhatsappShareButton url={"https://ecryptog.netlify.app/"}>
+                                          <WhatsAppIcon sx={{ fontSize: { xs: 32, sm: 36, md: 60 }, color: '#00A884' }} />
+                                        </WhatsappShareButton>
+                                      </Box>
+                                      {/* </Link> */}
                                     </Grid>
                                   </Grid>
                                 </DialogContentText>
                               </DialogContent>
                             </Box>
+                            <div className='divider' style={{ margin: 0 }}></div>
 
                             <DialogActions>
                               <Button onClick={handleClose}>Close</Button>
